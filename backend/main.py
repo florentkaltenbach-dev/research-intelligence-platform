@@ -54,7 +54,7 @@ if __name__ == "__main__":
     import uvicorn
     uvicorn.run(
         "backend.main:app",
-        host="0.0.0.0",
+        host="::",  # Listen on all interfaces (IPv4 and IPv6)
         port=8000,
         reload=settings.debug
     )
