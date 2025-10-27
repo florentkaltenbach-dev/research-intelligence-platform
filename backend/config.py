@@ -21,7 +21,13 @@ class Settings(BaseSettings):
 
     # CORS
     frontend_url: str = "http://localhost:3000"
-    allowed_origins: list[str] = ["http://localhost:3000", "http://localhost:5173"]
+    allowed_origins: list[str] = [
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "http://[2a01:4f9:c012:ee5a::1]:3000",
+        "http://[2a01:4f9:c012:ee5a::1]:8000",
+        "*"  # Allow all origins for public access
+    ]
 
     # Security
     secret_key: str = "change-this-secret-key-in-production"

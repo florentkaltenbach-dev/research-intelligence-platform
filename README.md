@@ -94,6 +94,16 @@ This platform enables you to manually curate research on power transitions, trac
    - API docs: http://localhost:8000/docs
    - Database: PostgreSQL on localhost:5432
 
+## Web Access (Remote Server)
+
+If you're running on a remote server, access via IPv6:
+
+- **Frontend**: http://[2a01:4f9:c012:ee5a::1]:3000
+- **API**: http://[2a01:4f9:c012:ee5a::1]:8000
+- **API Docs**: http://[2a01:4f9:c012:ee5a::1]:8000/docs
+
+The application is configured to accept connections from any origin for public access.
+
 ## Usage
 
 ### Adding Research with Claude Code
