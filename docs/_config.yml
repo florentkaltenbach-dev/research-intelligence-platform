@@ -1,0 +1,98 @@
+# Research Intelligence Platform - GitHub Pages Configuration
+
+# Site settings
+title: "Research Intelligence Platform"
+description: "Multi-perspective analysis of global power transitions and capital flows"
+baseurl: "" # Leave empty if using custom domain or root of GitHub Pages
+url: "https://username.github.io" # Update with your GitHub Pages URL
+
+# Theme
+theme: jekyll-theme-cayman
+# Alternative themes: minimal, slate, modernist, architect, tactile
+# For more themes: https://pages.github.com/themes/
+
+# Content settings
+permalink: pretty # Clean URLs without .html extension
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM # GitHub Flavored Markdown
+  syntax_highlighter: rouge
+  hard_wrap: false
+
+# Navigation
+navigation:
+  - title: "Home"
+    url: /
+  - title: "Events"
+    url: /events/
+  - title: "Perspectives"
+    url: /perspectives/
+  - title: "Historical Patterns"
+    url: /historical-patterns/
+  - title: "Sources"
+    url: /sources
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Collections for better organization
+collections:
+  events:
+    output: true
+    permalink: /events/:name
+  perspectives:
+    output: true
+    permalink: /perspectives/:path
+  historical_patterns:
+    output: true
+    permalink: /historical-patterns/:name
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "events"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "perspectives"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "historical_patterns"
+    values:
+      layout: "default"
+
+# Research methodology
+methodology:
+  source_tiers:
+    tier1: "Government/Official sources"
+    tier2: "Established media outlets"
+    tier3: "Academic/think tank publications"
+    tier4: "Social media/unverified sources"
+
+  confidence_levels:
+    5: "Very high - multiple Tier 1 sources"
+    4: "High - Tier 1-2 sources with corroboration"
+    3: "Medium - Tier 2 sources or single Tier 1"
+    2: "Low - Tier 3 sources or uncorroborated claims"
+    1: "Speculation - Tier 4 or no verification"
+
+# Site metadata
+author: "Claude Code Research Team"
+research_date: "October 2025"
+last_updated: "2025-10-27"
