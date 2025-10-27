@@ -1,0 +1,18 @@
+[Unit]
+Description=Research Intelligence Platform Backend
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=claudeuser
+Group=claudeuser
+WorkingDirectory=/home/claudeuser/research-intelligence-platform
+Environment="PATH=/home/claudeuser/research_venv/bin:/usr/local/bin:/usr/bin"
+Environment="PYTHONPATH=/home/claudeuser/research-intelligence-platform"
+EnvironmentFile=/home/claudeuser/research-intelligence-platform/.env
+ExecStart=/home/claudeuser/research_venv/bin/uvicorn backend.main:app --host 0.0.0.0 --port 8000 --log-level info
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

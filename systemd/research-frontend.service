@@ -1,0 +1,17 @@
+[Unit]
+Description=Research Intelligence Platform Frontend
+After=network.target research-backend.service
+
+[Service]
+Type=simple
+User=claudeuser
+Group=claudeuser
+WorkingDirectory=/home/claudeuser/research-intelligence-platform/frontend
+Environment="PATH=/usr/bin:/usr/local/bin"
+Environment="NODE_ENV=production"
+ExecStart=/usr/bin/npm run dev -- --host 0.0.0.0
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
