@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+import { Link } from 'react-router-dom'
 import { getAnalyses } from '../services/api'
 
 export default function AnalysesPage() {
@@ -44,6 +45,15 @@ export default function AnalysesPage() {
                 <span>
                   By {analysis.created_by} • {new Date(analysis.created_at).toLocaleDateString()}
                 </span>
+              </div>
+
+              <div className="mt-4">
+                <Link
+                  to={`/analyses/${analysis.id}`}
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  View Full Analysis →
+                </Link>
               </div>
             </div>
           ))

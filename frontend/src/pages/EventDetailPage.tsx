@@ -1,9 +1,14 @@
+import { useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useParams, Link } from 'react-router-dom'
 import { getEvent } from '../services/api'
 
+const INITIAL_PERSPECTIVES_SHOW = 3
+
 export default function EventDetailPage() {
   const { id } = useParams<{ id: string }>()
+  const [showAllPerspectives, setShowAllPerspectives] = useState(false)
+
   const { data: event, isLoading } = useQuery({
     queryKey: ['event', id],
     queryFn: async () => {
@@ -20,6 +25,12 @@ export default function EventDetailPage() {
   if (!event) {
     return <div className="text-center py-12">Event not found</div>
   }
+
+  const perspectives = event.perspectives || []
+  const displayedPerspectives = showAllPerspectives
+    ? perspectives
+    : perspectives.slice(0, INITIAL_PERSPECTIVES_SHOW)
+  const hasMorePerspectives = perspectives.length > INITIAL_PERSPECTIVES_SHOW
 
   return (
     <div className="space-y-6">
@@ -58,12 +69,12 @@ export default function EventDetailPage() {
       {/* Perspectives */}
       <div className="bg-white shadow rounded-lg p-6">
         <h2 className="text-2xl font-bold text-gray-900 mb-4">
-          Regional Perspectives ({event.perspectives?.length || 0})
+          Regional Perspectives ({perspectives.length})
         </h2>
 
-        {event.perspectives && event.perspectives.length > 0 ? (
+        {perspectives.length > 0 ? (
           <div className="space-y-6">
-            {event.perspectives.map((perspective) => (
+            {displayedPerspectives.map((perspective) => (
               <div key={perspective.id} className="border-l-4 border-blue-500 pl-4">
                 <div className="flex items-center space-x-2 mb-2">
                   <h3 className="text-lg font-semibold text-gray-900">{perspective.region}</h3>
@@ -107,6 +118,31 @@ export default function EventDetailPage() {
                 )}
               </div>
             ))}
+
+            {/* Show More Button */}
+            {hasMorePerspectives && !showAllPerspectives && (
+              <div className="text-center pt-4">
+                <button
+                  onClick={() => setShowAllPerspectives(true)}
+                  className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  Show {perspectives.length - INITIAL_PERSPECTIVES_SHOW} more perspective
+                  {perspectives.length - INITIAL_PERSPECTIVES_SHOW !== 1 ? 's' : ''}
+                </button>
+              </div>
+            )}
+
+            {/* Show Less Button */}
+            {showAllPerspectives && hasMorePerspectives && (
+              <div className="text-center pt-4">
+                <button
+                  onClick={() => setShowAllPerspectives(false)}
+                  className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                >
+                  Show less
+                </button>
+              </div>
+            )}
           </div>
         ) : (
           <p className="text-gray-500 text-center py-8">

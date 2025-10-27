@@ -69,23 +69,34 @@ export interface Analysis {
   research_approach: string | null
   created_by: string
   created_at: string
+  updated_at: string
+}
+
+export interface HistoricalPattern {
+  id: number
+  name: string
+  description: string
+  time_period: string | null
+  key_characteristics: string[] | null
+  relevance_score: number | null
+  created_at: string
 }
 
 // Events
-export const getEvents = () => api.get<Event[]>('/events')
+export const getEvents = (skip = 0, limit = 100) => api.get<Event[]>('/events/', { params: { skip, limit } })
 export const getEvent = (id: number) => api.get<EventDetail>(`/events/${id}`)
 
 // Metrics
-export const getMetrics = () => api.get<Metric[]>('/metrics')
+export const getMetrics = () => api.get<Metric[]>('/metrics/')
 export const getMetricHistory = (id: number) =>
   api.get<{ metric: Metric; datapoints: MetricDataPoint[] }>(`/metrics/${id}/history`)
 
 // Sources
 export const getSources = (params?: { region?: string; tier?: string }) =>
-  api.get<Source[]>('/sources', { params })
+  api.get<Source[]>('/sources/', { params })
 
 // Analyses
-export const getAnalyses = () => api.get<Analysis[]>('/analyses')
+export const getAnalyses = () => api.get<Analysis[]>('/analyses/')
 export const getAnalysis = (id: number) => api.get<Analysis>(`/analyses/${id}`)
 
 // Admin
@@ -98,5 +109,11 @@ export const getStats = () =>
     metrics: number
     sources_by_region: Record<string, number>
   }>('/admin/stats')
+
+// Historical Patterns
+export const getHistoricalPatterns = (params?: { min_relevance?: number }) =>
+  api.get<HistoricalPattern[]>('/historical-patterns/', { params })
+export const getHistoricalPattern = (id: number) =>
+  api.get<HistoricalPattern>(`/historical-patterns/${id}`)
 
 export default api

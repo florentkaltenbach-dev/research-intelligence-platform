@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
+import { Link } from 'react-router-dom'
 import { getMetrics } from '../services/api'
 
 export default function MetricsPage() {
@@ -21,16 +22,23 @@ export default function MetricsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {metrics && metrics.length > 0 ? (
           metrics.map((metric) => (
-            <div key={metric.id} className="bg-white shadow rounded-lg p-5">
+            <Link
+              key={metric.id}
+              to={`/metrics/${metric.id}`}
+              className="bg-white shadow rounded-lg p-5 hover:shadow-lg transition-shadow duration-200 block"
+            >
               <h3 className="text-lg font-semibold text-gray-900 mb-2">{metric.name}</h3>
               {metric.description && (
                 <p className="text-sm text-gray-600 mb-3">{metric.description}</p>
               )}
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-500">{metric.category}</span>
-                <span className="text-sm font-medium text-gray-700">{metric.unit}</span>
+                <span className="text-sm font-medium text-blue-600">{metric.unit}</span>
               </div>
-            </div>
+              <div className="mt-3 text-sm text-blue-600 hover:underline">
+                View time series →
+              </div>
+            </Link>
           ))
         ) : (
           <div className="col-span-full text-center py-12 text-gray-500">

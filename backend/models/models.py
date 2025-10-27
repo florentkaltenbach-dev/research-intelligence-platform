@@ -33,11 +33,11 @@ class Event(Base):
     __tablename__ = "events"
 
     id = Column(Integer, primary_key=True, index=True)
-    title = Column(String(500), nullable=False)
+    title = Column(String(500), nullable=False, index=True)
     description = Column(Text, nullable=False)
-    date = Column(DateTime, nullable=False)
-    region = Column(String(100), nullable=False)
-    impact_level = Column(SQLEnum(ImpactLevel), default=ImpactLevel.MEDIUM)
+    date = Column(DateTime, nullable=False, index=True)
+    region = Column(String(100), nullable=False, index=True)
+    impact_level = Column(SQLEnum(ImpactLevel), default=ImpactLevel.MEDIUM, index=True)
 
     # Metadata
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -54,11 +54,11 @@ class Perspective(Base):
     __tablename__ = "perspectives"
 
     id = Column(Integer, primary_key=True, index=True)
-    event_id = Column(Integer, ForeignKey("events.id"), nullable=False)
-    region = Column(String(100), nullable=False)  # e.g., "Chinese", "Russian", "Western"
+    event_id = Column(Integer, ForeignKey("events.id"), nullable=False, index=True)
+    region = Column(String(100), nullable=False, index=True)  # e.g., "Chinese", "Russian", "Western"
     summary = Column(Text, nullable=False)
     key_points = Column(JSON)  # List of key points
-    language = Column(String(50))  # Original language of sources
+    language = Column(String(50), index=True)  # Original language of sources
 
     # Metadata
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -89,10 +89,10 @@ class MetricDataPoint(Base):
     __tablename__ = "metric_datapoints"
 
     id = Column(Integer, primary_key=True, index=True)
-    metric_id = Column(Integer, ForeignKey("metrics.id"), nullable=False)
+    metric_id = Column(Integer, ForeignKey("metrics.id"), nullable=False, index=True)
     value = Column(Float, nullable=False)
-    date = Column(DateTime, nullable=False)
-    source_id = Column(Integer, ForeignKey("sources.id"))
+    date = Column(DateTime, nullable=False, index=True)
+    source_id = Column(Integer, ForeignKey("sources.id"), index=True)
 
     # Metadata
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -125,12 +125,12 @@ class Source(Base):
     __tablename__ = "sources"
 
     id = Column(Integer, primary_key=True, index=True)
-    url = Column(String(1000), nullable=False)
+    url = Column(String(1000), nullable=False, unique=True, index=True)
     title = Column(String(500), nullable=False)
-    credibility_tier = Column(SQLEnum(CredibilityTier), default=CredibilityTier.TIER_3)
-    region = Column(String(100))  # Geographic/cultural origin
-    language = Column(String(50))
-    publisher = Column(String(200))
+    credibility_tier = Column(SQLEnum(CredibilityTier), default=CredibilityTier.TIER_3, index=True)
+    region = Column(String(100), index=True)  # Geographic/cultural origin
+    language = Column(String(50), index=True)
+    publisher = Column(String(200), index=True)
 
     # Metadata
     created_at = Column(DateTime, default=datetime.utcnow)

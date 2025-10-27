@@ -5,6 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
 from pydantic import BaseModel
+from datetime import datetime
 
 from backend.models import Analysis, get_db
 
@@ -25,7 +26,8 @@ class AnalysisResponse(BaseModel):
     confidence_level: int
     research_approach: str | None
     created_by: str
-    created_at: str
+    created_at: datetime
+    updated_at: datetime
 
     class Config:
         from_attributes = True

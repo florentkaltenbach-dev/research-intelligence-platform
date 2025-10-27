@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query'
 import { Link } from 'react-router-dom'
 import { getEvents, getStats } from '../services/api'
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts'
 
 export default function HomePage() {
   const { data: events } = useQuery({
@@ -96,6 +97,70 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Geographic Distribution */}
+      {stats && events && events.length > 0 && (
+        <div className="bg-white shadow rounded-lg p-6">
+          <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            Geographic Distribution of Events
+          </h2>
+          <div className="h-80">
+            {(() => {
+              // Count events by region
+              const regionCounts: { [key: string]: number } = {}
+              events.forEach((event) => {
+                regionCounts[event.region] = (regionCounts[event.region] || 0) + 1
+              })
+
+              // Convert to chart data
+              const chartData = Object.entries(regionCounts).map(([region, count]) => ({
+                name: region,
+                value: count,
+              }))
+
+              // Colors for chart
+              const COLORS = [
+                '#3b82f6', // blue
+                '#10b981', // green
+                '#f59e0b', // amber
+                '#ef4444', // red
+                '#8b5cf6', // purple
+                '#ec4899', // pink
+                '#06b6d4', // cyan
+                '#f97316', // orange
+              ]
+
+              return (
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={chartData}
+                      cx="50%"
+                      cy="50%"
+                      labelLine={false}
+                      label={({ name, percent }) =>
+                        `${name} (${(percent * 100).toFixed(0)}%)`
+                      }
+                      outerRadius={100}
+                      fill="#8884d8"
+                      dataKey="value"
+                    >
+                      {chartData.map((entry, index) => (
+                        <Cell
+                          key={`cell-${index}`}
+                          fill={COLORS[index % COLORS.length]}
+                        />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                    <Legend />
+                  </PieChart>
+                </ResponsiveContainer>
+              )
+            })()}
           </div>
         </div>
       )}

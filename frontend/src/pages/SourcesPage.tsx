@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query'
 import { getSources } from '../services/api'
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts'
 
 const TIER_COLORS = {
   tier_1: 'bg-green-100 text-green-800',
@@ -7,6 +8,8 @@ const TIER_COLORS = {
   tier_3: 'bg-yellow-100 text-yellow-800',
   tier_4: 'bg-gray-100 text-gray-800',
 }
+
+const CHART_COLORS = ['#10b981', '#3b82f6', '#eab308', '#6b7280']
 
 export default function SourcesPage() {
   const { data: sources, isLoading } = useQuery({
@@ -21,12 +24,93 @@ export default function SourcesPage() {
     return <div className="text-center py-12">Loading sources...</div>
   }
 
+  // Calculate diversity metrics
+  const tierCounts: { [key: string]: number } = {}
+  const languageCounts: { [key: string]: number } = {}
+  const regionCounts: { [key: string]: number } = {}
+
+  sources?.forEach((source: any) => {
+    // Count by tier
+    const tier = source.credibility_tier || 'unknown'
+    tierCounts[tier] = (tierCounts[tier] || 0) + 1
+
+    // Count by language
+    const lang = source.language || 'Unknown'
+    languageCounts[lang] = (languageCounts[lang] || 0) + 1
+
+    // Count by region
+    const region = source.region || 'Unknown'
+    regionCounts[region] = (regionCounts[region] || 0) + 1
+  })
+
+  const tierData = Object.entries(tierCounts).map(([tier, count]) => ({
+    name: tier.replace('_', ' ').toUpperCase(),
+    value: count,
+  }))
+
+  const languageData = Object.entries(languageCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 10)
+    .map(([language, count]) => ({
+      name: language,
+      value: count,
+    }))
+
   return (
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-gray-900 mb-2">Source Library</h1>
         <p className="text-gray-600">Sources are rated from Tier 1 (most credible) to Tier 4</p>
       </div>
+
+      {sources && sources.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Credibility Tier Distribution */}
+          <div className="bg-white shadow rounded-lg p-6">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Credibility Tier Distribution</h2>
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  data={tierData}
+                  cx="50%"
+                  cy="50%"
+                  labelLine={false}
+                  label={({ name, percent }) => `${name} (${(percent * 100).toFixed(0)}%)`}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  dataKey="value"
+                >
+                  {tierData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
+            <div className="mt-4 text-sm text-gray-600">
+              <p>Total sources: {sources.length}</p>
+            </div>
+          </div>
+
+          {/* Language Diversity */}
+          <div className="bg-white shadow rounded-lg p-6">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">Language Diversity</h2>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={languageData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" angle={-45} textAnchor="end" height={100} />
+                <YAxis />
+                <Tooltip />
+                <Bar dataKey="value" fill="#3b82f6" />
+              </BarChart>
+            </ResponsiveContainer>
+            <div className="mt-4 text-sm text-gray-600">
+              <p>Unique languages: {Object.keys(languageCounts).length}</p>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="bg-white shadow rounded-lg divide-y divide-gray-200">
         {sources && sources.length > 0 ? (

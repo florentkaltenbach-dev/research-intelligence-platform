@@ -25,6 +25,13 @@ python-dotenv==1.0.1
 # Optional: Redis for caching
 redis==5.2.0
 
+# Rate limiting
+slowapi==0.1.9
+
+# Error tracking (optional)
+# Uncomment to enable Sentry:
+# sentry-sdk[fastapi]==2.19.2
+
 # Development
 pytest==8.3.3
 pytest-asyncio==0.24.0
