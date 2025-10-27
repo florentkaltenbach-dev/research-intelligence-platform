@@ -66,3 +66,9 @@ backend/alembic/versions/*.py
 backend/**/*.pyc
 frontend/dist/
 frontend/.vite/
+frontend/package-lock.json
+
+# Runtime files
+*.pid
+*.log
+backend/research.db

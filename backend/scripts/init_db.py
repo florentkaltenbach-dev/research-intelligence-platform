@@ -6,11 +6,11 @@ Run this after starting postgres: python backend/scripts/init_db.py
 import sys
 from pathlib import Path
 
-# Add backend to path
-sys.path.insert(0, str(Path(__file__).parent.parent))
+# Add project root to path
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from models.database import Base, engine
-from models import models  # noqa - import to register models
+from backend.models.database import Base, engine
+from backend.models import models  # noqa - import to register models
 
 def init_db():
     """Create all tables in the database."""
