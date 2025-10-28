@@ -202,8 +202,8 @@ China benefits from exaggerated threat assessment.
 ## Related Events
 
 - [BRICS Payment Systems](/events/brics-payment-systems) - Competing/complementary systems
-- [China-Russia yuan trade](/perspectives/chinese/yuan-internationalization) - Major CIPS use case
-- [Africa-China trade](/perspectives/african/cips-adoption) - Practical driver of adoption
+- China-Russia yuan trade - Major CIPS use case (95% of $245B bilateral trade)
+- Africa-China trade - Practical driver of adoption ($250B+ trade volume)
 
 ---
 

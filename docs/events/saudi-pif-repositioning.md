@@ -117,7 +117,7 @@ Pattern: Multi-alignment strategy. PIF maintains relationships with competing po
 
 ## Related Events
 
-- [Central Bank Gold Accumulation](/events/central-bank-gold-2025) - Pattern of Gulf states diversifying reserves
+- [Central Bank Gold Accumulation](/events/central-bank-gold-accumulation-1000-tonnes-annually-for-three-consecutive-years) - Pattern of Gulf states diversifying reserves
 - [Capital Flight to UAE/Singapore](/events/capital-flight-uae-singapore) - Broader Gulf financial hub development
 - [Islamic Finance Growth](/events/islamic-finance-growth) - Gulf states leading $6T sector
 

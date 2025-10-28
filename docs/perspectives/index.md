@@ -31,7 +31,7 @@ Same events, different interpretations. This section presents how various region
 
 ## Perspectives by Region
 
-### [Chinese Perspective](/perspectives/chinese/)
+### [Chinese Perspective](/perspectives/chinese)
 **Themes**: Long-term infrastructure development, yuan internationalization, patience
 
 **Key Viewpoints**:
@@ -49,7 +49,7 @@ Same events, different interpretations. This section presents how various region
 
 ---
 
-### [Russian Perspective](/perspectives/russian/)
+### [Russian Perspective](/perspectives/russian)
 **Themes**: Sanctions circumvention, alternative payment systems, gold reserves
 
 **Key Viewpoints**:
@@ -67,7 +67,7 @@ Same events, different interpretations. This section presents how various region
 
 ---
 
-### [Middle Eastern Perspective](/perspectives/middle-eastern/)
+### [Middle Eastern Perspective](/perspectives/middle-eastern)
 **Themes**: Gulf capital deployment, Islamic finance, multi-alignment
 
 **Key Viewpoints**:
@@ -85,7 +85,7 @@ Same events, different interpretations. This section presents how various region
 
 ---
 
-### [Indian Perspective](/perspectives/indian/)
+### [Indian Perspective](/perspectives/indian)
 **Themes**: Multi-alignment, strategic autonomy, optionality
 
 **Key Viewpoints**:
@@ -105,7 +105,7 @@ Same events, different interpretations. This section presents how various region
 
 ---
 
-### [Western Perspective](/perspectives/western/)
+### [Western Perspective](/perspectives/western)
 **Themes**: Dollar dominance analysis, threat assessment, sanctions effectiveness
 
 **Key Viewpoints**:
@@ -127,7 +127,7 @@ Same events, different interpretations. This section presents how various region
 
 ---
 
-### [African Perspective](/perspectives/african/)
+### [African Perspective](/perspectives/african)
 **Themes**: Alternative development finance, CIPS adoption, China-Africa trade
 
 **Key Viewpoints**:

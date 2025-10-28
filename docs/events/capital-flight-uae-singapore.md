@@ -272,7 +272,7 @@ Singapore raised GIP requirement S$2.5M → S$10M:
 
 - [Saudi PIF Repositioning](/events/saudi-pif-repositioning) - GCC capital deployment
 - [Islamic Finance Growth](/events/islamic-finance-growth) - Dubai as Islamic finance hub
-- [Russian sanctions response](/perspectives/russian/sanctions-circumvention) - Capital relocation
+- Russian sanctions response - Capital relocation from frozen assets
 
 ---
 

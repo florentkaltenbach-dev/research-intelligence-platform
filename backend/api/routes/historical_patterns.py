@@ -2,6 +2,7 @@
 API routes for historical patterns management.
 """
 from typing import List, Optional
+from datetime import datetime
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
@@ -40,7 +41,7 @@ class HistoricalPatternResponse(BaseModel):
     time_period: Optional[str]
     key_characteristics: Optional[List[str]]
     relevance_score: Optional[float]
-    created_at: str
+    created_at: datetime
 
     class Config:
         from_attributes = True

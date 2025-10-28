@@ -196,7 +196,7 @@ If this were just inflation hedging, we wouldn't see:
 
 - [Saudi PIF Repositioning](/events/saudi-pif-repositioning) - Gulf diversification beyond US assets
 - [BRICS Payment Systems](/events/brics-payment-systems) - Alternative settlement mechanisms
-- [Russia sanctions response](/perspectives/russian/sanctions-circumvention) - Gold as sanction-proof asset
+- Russia sanctions response - Gold as sanction-proof asset (35% of reserves)
 
 ---
 

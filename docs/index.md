@@ -23,11 +23,11 @@ This platform provides Wikipedia-quality research on global financial architectu
 - [Saudi PIF US equity exposure drops to $23.8B](/events/saudi-pif-repositioning) (61% decline from 2021)
 - [142,000 millionaires relocating globally](/events/capital-flight-uae-singapore) - largest voluntary wealth transfer in modern history
 - [China's CIPS reaches 185+ countries](/events/china-cips-expansion), processing 175T yuan ($24.47T)
-- [Poland gold reserves surge](/events/central-bank-gold-2025) - targeting 30% in gold
+- [Poland gold reserves surge](/events/central-bank-gold-accumulation-1000-tonnes-annually-for-three-consecutive-years) - targeting 30% in gold
 
 **Q1 2025**
 - [El Salvador repeals Bitcoin legal tender](/events/el-salvador-bitcoin-reversal) (Jan 30) for IMF $1.4B loan
-- India's Foreign Minister Jaishankar: ["India has never been for de-dollarization"](/perspectives/indian/brics-payments-stance)
+- India's Foreign Minister Jaishankar: "India has never been for de-dollarization"
 
 ### 2024
 
@@ -67,12 +67,12 @@ Major developments in global financial architecture:
 
 ### [Perspectives](/perspectives/)
 Regional viewpoints on the same events:
-- [Chinese](/perspectives/chinese/) - Infrastructure and long-term positioning
-- [Russian](/perspectives/russian/) - Sanctions circumvention and alternatives
-- [Middle Eastern](/perspectives/middle-eastern/) - Gulf finance and Islamic banking
-- [Indian](/perspectives/indian/) - Multi-alignment strategy
-- [Western](/perspectives/western/) - Dollar dominance analysis
-- [African](/perspectives/african/) - Regional payment systems
+- [Chinese](/perspectives/chinese) - Infrastructure and long-term positioning
+- [Russian](/perspectives/russian) - Sanctions circumvention and alternatives
+- [Middle Eastern](/perspectives/middle-eastern) - Gulf finance and Islamic banking
+- [Indian](/perspectives/indian) - Multi-alignment strategy
+- [Western](/perspectives/western) - Dollar dominance analysis
+- [African](/perspectives/african) - Regional payment systems
 
 ### [Historical Patterns](/historical-patterns/)
 Current events mapped to historical power transitions:

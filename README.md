@@ -1,258 +1,291 @@
 # Research Intelligence Platform
 
-A Wikipedia-style platform for analyzing global power transitions and capital flows through multi-perspective research.
+Multi-perspective analysis of global power transitions and capital flows, published as Wikipedia-style research on GitHub Pages.
+
+**Live Site**: `https://[username].github.io/research-intelligence-platform/` (configure in repo settings)
 
 ## Overview
 
-This platform enables you to manually curate research on power transitions, tracking events, perspectives from different regions, financial metrics, and sources—all with proper credibility ratings and citations.
+This platform curates research on financial architecture shifts through verified sources from Western, Chinese, Russian, Middle Eastern, Indian, and African perspectives. All content lives as markdown files in `docs/` and is published via GitHub Pages with Jekyll.
 
-**Key Principle**: This is **not** an automated system. You use Claude Code (via your Max subscription) to manually research topics and populate the platform with findings.
+**Key Principle**: This is a **manually curated research platform**, not an automated system. Research is conducted using Claude Code, synthesized into structured markdown, and published via git commits.
 
-## Features
+## Current Research Content
 
-- 📅 **Events**: Track major developments in power transitions
-- 🌍 **Multi-Perspective Analysis**: Compare Western, Chinese, Russian, Arabic, and other regional viewpoints
-- 📊 **Metrics**: Track financial indicators over time (gold reserves, currency flows, etc.)
-- 📚 **Source Library**: All sources rated Tier 1-4 for credibility
-- 📝 **Research Analyses**: Synthesize findings with confidence ratings
-- 🔍 **Wikipedia-Style UI**: Clean, accessible presentation
+### 📌 19+ Major Events (2022-2025)
+- Saudi PIF $913B repositioning (61% US equity reduction)
+- Central bank gold accumulation (3,220 tonnes over 3 years)
+- BRICS payment systems (fragmented, not unified)
+- China's CIPS expansion (185+ countries, $24.47T processed)
+- El Salvador Bitcoin reversal (IMF-mandated rollback)
+- Islamic Finance growth ($6T → $9.7T projected)
+- Capital flight to UAE/Singapore (142,000 millionaires)
+- Plus: US-China semiconductor war, India's strategic autonomy, dollar weaponization, etc.
+
+### 🌍 50+ Regional Perspectives
+Multi-angle analysis on each event from:
+- **Western** (US, European)
+- **Chinese** (state media, academic, official sources)
+- **Russian** (sanctions circumvention focus)
+- **Middle Eastern** (Gulf finance, Islamic banking)
+- **Indian** (multi-alignment strategy)
+- **African** (resource competition, alternative systems)
+- **Global South** (non-aligned perspective)
+
+### 📊 4 Comprehensive Synthesis Reports
+- Global Capital Flows October 2025 Update
+- Historical Power Transitions (8 cases)
+- Emerging Patterns 2023-2025
+- Multi-perspective thematic analysis
+
+### 📚 Source Library
+18+ credibility-tiered sources (Tier 1-4) from government data, established media, think tanks, and regional outlets.
 
 ## Technology Stack
 
-### Backend
-- Python 3.12+ with FastAPI
-- PostgreSQL 16+ for data storage
-- SQLAlchemy ORM with Alembic migrations
-- Redis 7.4+ (optional, for caching)
+### Published Content
+- **Static Site**: Jekyll on GitHub Pages
+- **Theme**: Cayman (configurable in `docs/_config.yml`)
+- **Content**: Markdown files in `docs/` directory
+- **Deployment**: Auto-deploy on push to main
 
-### Frontend
-- React 19 with TypeScript 5+
-- Vite 6 (requires Node.js 20.19+ or 22.12+)
-- TailwindCSS for styling
-- React Query for data fetching
+### Optional Backend/Frontend (Development Phase)
+- **Backend**: Python 3.12+ with FastAPI, PostgreSQL, SQLAlchemy
+- **Frontend**: React 19 with TypeScript 5+, Vite 6, TailwindCSS
+- **Note**: Backend/frontend are for content management during research. Public output is static GitHub Pages.
 
-### Development
-- Docker Compose for local development
-- Claude Code for manual research and content addition
+## Quick Start for Contributors
 
-## Quick Start
+### 1. Clone Repository
+```bash
+git clone <repo-url>
+cd research-intelligence-platform
+```
 
-### Prerequisites
-- Python 3.12+
-- Node.js 20.19+ or 22.12+
-- Docker and Docker Compose
-- Claude Code (or Claude Max subscription)
+### 2. View Content
+All research is in `docs/`:
+```
+docs/
+├── index.md                    # Homepage with timeline
+├── events/                     # 19+ event files
+├── perspectives/               # 50+ regional perspectives
+├── analyses/                   # 4 synthesis reports
+├── historical-patterns/        # Power transition parallels
+└── sources.md                  # Credibility-tiered source library
+```
 
-### Installation
+### 3. Enable GitHub Pages
+- Go to repo **Settings → Pages**
+- Source: **Deploy from a branch**
+- Branch: **main** → Folder: **/docs**
+- Wait 1-2 minutes for build
 
-1. **Clone and setup**
-   ```bash
-   cd research-intelligence-platform
-   cp .env.example .env
-   ```
+### 4. Conduct Research with Claude Code
+```bash
+claude  # or use https://claude.ai/code
+```
 
-2. **Start services**
-   ```bash
-   docker-compose up -d
-   ```
+Example request:
+```
+Research "Central bank digital currencies Q4 2025" using Source Diversification approach.
+Find Chinese, Russian, and Middle Eastern perspectives. Create an event file in docs/events/
+with proper front matter, regional perspectives, and citations.
+```
 
-3. **Install Python dependencies**
-   ```bash
-   cd backend
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   pip install -r requirements.txt
-   ```
+Claude Code will:
+- Search web for multi-regional sources
+- Synthesize findings into structured markdown
+- Create/update files in `docs/`
+- Commit with descriptive message
 
-4. **Initialize database**
-   ```bash
-   python scripts/init_db.py
-   ```
+### 5. Push to Publish
+```bash
+git add docs/
+git commit -m "feat: add CBDC analysis with Chinese/Russian perspectives"
+git push origin main
+```
 
-5. **Install frontend dependencies**
-   ```bash
-   cd ../frontend
-   npm install
-   ```
-
-6. **Start development servers**
-
-   Terminal 1 (Backend):
-   ```bash
-   cd backend
-   python main.py
-   ```
-
-   Terminal 2 (Frontend):
-   ```bash
-   cd frontend
-   npm run dev
-   ```
-
-7. **Access the application**
-   - Frontend: http://localhost:3000
-   - API docs: http://localhost:8000/docs
-   - Database: PostgreSQL on localhost:5432
-
-## Web Access (Remote Server)
-
-If you're running on a remote server, access via IPv6:
-
-- **Frontend**: http://[2a01:4f9:c012:ee5a::1]:3000
-- **API**: http://[2a01:4f9:c012:ee5a::1]:8000
-- **API Docs**: http://[2a01:4f9:c012:ee5a::1]:8000/docs
-
-The application is configured to accept connections from any origin for public access.
-
-## Usage
-
-### Adding Research with Claude Code
-
-1. **Start Claude Code**
-   ```bash
-   claude  # or use https://claude.ai/code
-   ```
-
-2. **Request research** (example):
-   ```
-   Research "BRICS currency discussions 2024" using the Source Diversification approach.
-
-   Find perspectives from Chinese, Russian, Indian, and Arabic sources. Create an Event
-   in the database with Perspectives for each region, properly cited with Sources.
-   ```
-
-3. **Claude Code will**:
-   - Use web search to find sources
-   - Analyze different regional perspectives
-   - Make API calls to create Event, Perspectives, and Sources
-   - Commit the changes with a descriptive message
-
-4. **Review and push**
-   ```bash
-   git push origin main  # Auto-deploys if configured
-   ```
-
-### Research Approaches
-
-See `research/approaches/` for detailed templates:
-- **Source Diversification**: Find non-Western perspectives
-- **Data Collection**: Track metrics over time
-- **Synthesis**: Combine multiple analyses
+GitHub Pages auto-rebuilds within 1-2 minutes.
 
 ## Project Structure
 
 ```
 research-intelligence-platform/
-├── backend/                  # FastAPI backend
-│   ├── api/routes/          # API endpoints
-│   ├── models/              # Database models
-│   ├── scripts/             # Helper scripts
-│   ├── alembic/             # Database migrations
-│   ├── main.py              # FastAPI app
-│   └── config.py            # Configuration
-├── frontend/                 # React frontend
-│   └── src/
-│       ├── components/      # React components
-│       ├── pages/           # Page components
-│       └── services/        # API client
-├── research/                 # Research templates
-│   ├── approaches/          # Research methodologies
-│   └── findings/            # Session outputs
-├── docker-compose.yml        # Local development
-└── README.md
+├── docs/                        # GitHub Pages content (public)
+│   ├── _config.yml             # Jekyll configuration
+│   ├── index.md                # Homepage
+│   ├── events/                 # Major developments
+│   ├── perspectives/           # Regional viewpoints
+│   ├── analyses/               # Synthesis reports
+│   ├── historical-patterns/    # Historical parallels
+│   └── sources.md              # Source library
+├── backend/                     # Optional: FastAPI backend
+│   ├── api/routes/             # API endpoints
+│   ├── models/                 # Database models
+│   └── scripts/                # Data management
+├── frontend/                    # Optional: React UI
+│   └── src/                    # React components
+├── research/                    # Research templates
+│   └── approaches/             # Methodologies
+├── docker-compose.yml           # Dev environment
+├── README.md                    # This file
+└── CLAUDE.md                    # Developer instructions
 ```
-
-## API Endpoints
-
-### Public Read Access
-- `GET /api/events` - List all events
-- `GET /api/events/{id}` - Get event with perspectives
-- `GET /api/metrics` - List metrics
-- `GET /api/sources` - Browse sources
-- `GET /api/analyses` - List analyses
-
-### Content Management (via Claude Code)
-- `POST /api/events` - Create event
-- `POST /api/perspectives` - Add perspective
-- `POST /api/metrics/datapoint` - Add data point
-- `POST /api/sources` - Register source
-- `POST /api/analyses` - Save analysis
-
-### Admin
-- `GET /api/admin/health` - Health check
-- `GET /api/admin/stats` - Platform statistics
-
-## Development
-
-### Database Migrations
-
-```bash
-cd backend
-# Create migration
-alembic revision --autogenerate -m "description"
-# Apply migrations
-alembic upgrade head
-```
-
-### Testing Locally
-
-```bash
-# Backend
-cd backend
-pytest
-
-# Frontend
-cd frontend
-npm run lint
-npm run build
-```
-
-## Deployment
-
-### Frontend (Vercel)
-1. Connect GitHub repository to Vercel
-2. Set build command: `cd frontend && npm run build`
-3. Set output directory: `frontend/dist`
-4. Auto-deploys on push to main
-
-### Backend (Railway/Fly.io)
-1. Connect GitHub repository
-2. Set environment variables from `.env.example`
-3. Auto-deploys on push to main
-
-### Database
-- Use managed PostgreSQL from hosting provider
-- Or use Supabase/Neon for serverless Postgres
-
-## Contributing
-
-1. Create a feature branch
-2. Make changes
-3. Use Claude Code to test thoroughly
-4. Create pull request
-5. Merge to main → auto-deploy
 
 ## Research Methodology
 
-### Multi-Perspective Principle
-Always search for non-Western sources (Chinese, Russian, Arabic, Hindi perspectives) to avoid Western-centric bias.
+### Multi-Perspective Analysis
+✅ Always search non-Western sources (Chinese, Russian, Arabic, Hindi, Middle Eastern)
+✅ Compare how different regions frame the same events
+✅ Track source credibility with 4-tier system
 
 ### Currency Diversity
-Track financial data in multiple currencies (Yuan, Rupee, Ruble, Dirham), not just USD/EUR.
+✅ Data in Yuan, Rupee, Ruble, Dirham (not just USD/EUR)
+✅ Track financial metrics in original currencies
+✅ Note exchange rate assumptions
+
+### Historical Context
+✅ Map current events to 8 historical power transition patterns
+✅ Assign relevance scores (0.00-1.00) to historical parallels
+✅ Identify similarities and differences
+
+### Explicit Uncertainty
+✅ Confidence levels (1-5 stars) on all claims
+✅ Source credibility tiers (Tier 1-4)
+✅ Clear distinction between facts and analysis
+
+## Content Templates
+
+### Event File Template
+```yaml
+---
+layout: default
+title: "Event Title"
+date: YYYY-MM-DD
+event_type: "Category"
+confidence: 1-5
+regions: ["Region1", "Region2"]
+---
+
+# Event Title
+
+**Executive Summary**: 2-3 sentences
+
+## Verified Facts
+- Bullet list with sources
+
+## Regional Perspectives
+
+### Chinese View
+**Source**: Outlet names
+- Framing
+- Emphasis
+- Quote
+
+### Western View
+...
+
+## Historical Parallels
+Pattern name (relevance: 0.XX)
+
+## Data & Metrics
+| Metric | 2023 | 2024 | 2025 |
+|--------|------|------|------|
+
+## Related Events
+- [Event 1](/events/slug)
+
+[← Back to Events](/events/)
+```
 
 ### Source Credibility Tiers
-- **Tier 1**: Government data, academic papers
-- **Tier 2**: Established news organizations
-- **Tier 3**: Independent journalists, blogs
-- **Tier 4**: Social media, unverified sources
+- **Tier 1**: Government/official sources, central banks, system operators
+- **Tier 2**: Established media (Bloomberg, SCMP, Arab News, Al Jazeera)
+- **Tier 3**: Academic publications, think tanks
+- **Tier 4**: Social media, unverified sources (rarely used, explicitly noted)
 
 ### Confidence Levels
-All analyses use 1-5 star confidence ratings:
-- ⭐ = Speculative
-- ⭐⭐ = Uncertain
-- ⭐⭐⭐ = Moderate confidence
-- ⭐⭐⭐⭐ = High confidence
-- ⭐⭐⭐⭐⭐ = Very high confidence
+- ⭐⭐⭐⭐⭐ (5/5): Multiple Tier 1 sources, cross-regional verification
+- ⭐⭐⭐⭐ (4/5): Tier 1-2 sources with corroboration
+- ⭐⭐⭐ (3/5): Tier 2 sources or single Tier 1
+- ⭐⭐ (2/5): Tier 3 sources or uncorroborated
+- ⭐ (1/5): Speculation or Tier 4 sources
+
+## Key Findings (October 2025)
+
+### What Western Analysis Systematically Misses
+1. **Scale Blindness** - Islamic finance ($6T) exceeds many G20 economies
+2. **Infrastructure Determinism** - Payment systems built before currency adoption
+3. **Optionality Over Replacement** - Countries building alternatives for OPTIONS, not replacement
+4. **False Unity Narratives** - "BRICS de-dollarization" is Western construct; reality is fragmented systems
+5. **Incrementalism vs Revolution** - No dramatic collapse; systematic erosion through thousand cuts
+
+### Most Likely Outcome: Hybrid Multipolar System by 2030
+**Projected:**
+- Dollar: 58% → 40-45% of reserves (dominant but not monopolistic)
+- Yuan zone: Asia, Africa, parts of Middle East
+- Gold: 15% → 20-25% of reserves
+- Islamic finance: $10T+ by 2035
+
+**NOT Happening:**
+- ❌ Dollar collapse (too binary)
+- ❌ BRICS triumph (too fragmented)
+- ❌ Status quo maintained (ignores structural shifts)
+
+## Development Setup (Optional)
+
+If you want to run the backend/frontend for content management:
+
+### Prerequisites
+- Python 3.12+, Node.js 20.19+, Docker & Docker Compose
+- PostgreSQL 16+ (via Docker or local)
+
+### Setup
+```bash
+# Start database
+docker-compose up -d
+
+# Backend
+cd backend
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+alembic upgrade head
+python main.py  # Runs on :8000
+
+# Frontend
+cd frontend
+npm install
+npm run dev  # Runs on :3000
+```
+
+**Note**: Most contributors won't need the backend/frontend. Research is added directly as markdown files in `docs/`.
+
+## Testing Locally with Jekyll (Optional)
+
+```bash
+cd docs/
+gem install jekyll bundler
+bundle exec jekyll serve
+# Visit http://localhost:4000
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature/topic-name`
+3. Add research to `docs/` following templates
+4. Commit: `git commit -m "feat: add analysis of [topic]"`
+5. Push and create Pull Request
+6. Merge → auto-deploys to GitHub Pages
+
+## Documentation
+
+- **`README.md`** (this file): Project overview and quick start
+- **`CLAUDE.md`**: Detailed development instructions for Claude Code
+- **`TODO.md`**: Current priorities and active tasks
+- **`docs/README.md`**: GitHub Pages structure and deployment guide
+- **`docs/project-history/`**: Archived project status documents
 
 ## License
 
@@ -260,8 +293,11 @@ MIT License - See LICENSE file for details
 
 ## Acknowledgments
 
-Built with Claude Code - AI-assisted development using Claude Max subscription.
+Research conducted with **Claude Code** using Claude Max subscription.
+All analysis commits include: `Co-Authored-By: Claude <noreply@anthropic.com>`
 
 ---
 
-**Note**: This platform is designed for manual curation, not automation. Think of it like building Wikipedia, not like building a robot researcher.
+**Current Status**: Active research platform with 19+ events, 50+ perspectives, 100+ verified sources
+**Last Major Update**: October 27, 2025
+**Confidence**: ⭐⭐⭐⭐ (4/5 - High confidence with noted uncertainties)

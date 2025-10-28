@@ -235,7 +235,7 @@ African sukuk issuance ($3B+ in 2024) provides:
 
 - [Saudi PIF Repositioning](/events/saudi-pif-repositioning) - GCC capital deployment
 - [Capital Flight to UAE](/events/capital-flight-uae-singapore) - Dubai as financial hub
-- [Belt and Road Initiative](/perspectives/chinese/bri-islamic-finance) - China-GCC cooperation
+- Belt and Road Initiative - China-GCC financial cooperation
 
 ---
 

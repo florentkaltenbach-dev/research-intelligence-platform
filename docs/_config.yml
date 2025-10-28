@@ -47,33 +47,23 @@ exclude:
   - node_modules
   - vendor
 
-# Collections for better organization
-collections:
-  events:
-    output: true
-    permalink: /events/:name
-  perspectives:
-    output: true
-    permalink: /perspectives/:path
-  historical_patterns:
-    output: true
-    permalink: /historical-patterns/:name
+# Collections disabled - using plain folder structure instead
+# To enable collections, folders would need to be renamed with underscore prefix (_events, _perspectives, etc.)
+# collections:
+#   events:
+#     output: true
+#     permalink: /events/:name
+#   perspectives:
+#     output: true
+#     permalink: /perspectives/:path
+#   historical_patterns:
+#     output: true
+#     permalink: /historical-patterns/:name
 
-# Default front matter
+# Default front matter for all markdown files
 defaults:
   - scope:
       path: ""
-      type: "events"
-    values:
-      layout: "default"
-  - scope:
-      path: ""
-      type: "perspectives"
-    values:
-      layout: "default"
-  - scope:
-      path: ""
-      type: "historical_patterns"
     values:
       layout: "default"
 

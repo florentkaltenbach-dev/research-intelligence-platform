@@ -230,7 +230,7 @@ This is RARE consensus across ideological spectrum.
 
 - [BRICS Payment Systems](/events/brics-payment-systems) - Actual alternative payment infrastructure vs crypto
 - [Central Bank Gold Accumulation](/events/central-bank-gold-2024) - Traditional reserves vs crypto
-- [CBDC Development](/perspectives/central-banks/cbdc-vs-crypto) - Regulated digital currency alternative
+- CBDC Development - Regulated digital currency alternative to cryptocurrency
 
 ---
 

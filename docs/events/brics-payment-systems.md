@@ -223,8 +223,8 @@ By portraying BRICS as unified alternative, Western media:
 ## Related Events
 
 - [China's CIPS Expansion](/events/china-cips-expansion) - Actual functional alternative to SWIFT
-- [Russian sanctions response](/perspectives/russian/sanctions-circumvention) - Driver of yuan adoption
-- [India's multi-alignment strategy](/perspectives/indian/brics-payments-stance) - Rejecting de-dollarization
+- Russian sanctions response - Driver of yuan adoption
+- India's multi-alignment strategy - Explicitly rejecting de-dollarization
 
 ---
 
